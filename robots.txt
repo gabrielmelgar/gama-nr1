@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gamaterapias.com.br/nr1/sitemap.xml
