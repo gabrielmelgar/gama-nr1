@@ -165,6 +165,8 @@
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; overflow-x: hidden; }
     body { font-family: 'DM Sans', system-ui, sans-serif; background: #ffffff; color: #1e293b; margin: 0; overflow-x: hidden; width: 100%; }
+    h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
+    p, li, blockquote { text-wrap: pretty; }
 
     /* ---- HEADER ---- */
     .header {
@@ -733,6 +735,17 @@
       .container { padding: 0 18px; }
       .section-title { font-size: 26px; text-wrap: balance; }
       .section-subtitle { font-size: 15px; text-wrap: balance; }
+
+      /* Fix: translateX nas animações causa overflow horizontal no mobile */
+      .fade-in-left { transform: translateY(24px); }
+      .fade-in-left.visible { transform: translateY(0); }
+      .fade-in-right { transform: translateY(24px); }
+      .fade-in-right.visible { transform: translateY(0); }
+
+      /* Padrão de alinhamento consistente: tudo à esquerda no mobile */
+      .resultados-inner { align-items: flex-start; text-align: left; }
+      .metodologia .fade-in,
+      .faq .fade-in { text-align: left !important; }
 
       /* Hero */
       .hero { min-height: auto; align-items: flex-start; }
