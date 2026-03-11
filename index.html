@@ -731,14 +731,14 @@
       /* General */
       section { padding: 52px 0; }
       .container { padding: 0 18px; }
-      .section-title { font-size: 26px; }
-      .section-subtitle { font-size: 15px; }
+      .section-title { font-size: 26px; text-wrap: balance; }
+      .section-subtitle { font-size: 15px; text-wrap: balance; }
 
       /* Hero */
       .hero { min-height: auto; align-items: flex-start; }
       .hero-inner { padding: 40px 18px 52px; gap: 36px; }
-      .hero h1 { font-size: 28px; margin: 16px 0 14px; }
-      .hero p { font-size: 15px; margin-bottom: 24px; }
+      .hero h1 { font-size: 28px; margin: 16px 0 14px; text-wrap: balance; }
+      .hero p { font-size: 15px; margin-bottom: 24px; text-wrap: balance; }
       .hero-btns { gap: 10px; }
       .hero-btns .btn-primary { width: 100%; justify-content: center; }
       .hero-image-wrap { height: 280px; border-radius: 18px; }
@@ -746,10 +746,11 @@
       .countdown-item { min-width: 58px; padding: 10px 10px; }
       .countdown-item .num { font-size: 22px; }
       .countdown-sep { font-size: 20px; }
+      .countdown-wrapper { text-align: center; }
 
       /* Problema */
       .problema-image { height: 240px; }
-      .problema-quote { padding: 16px 18px; }
+      .problema-quote { padding: 16px 18px; text-wrap: balance; }
 
       /* Especialista (inline style override) */
       .especialista-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
@@ -774,16 +775,17 @@
       .tab-btn { padding: 10px 14px; font-size: 13px; }
       .tab-image { height: 200px; }
       .tab-image img { height: 200px; }
-      .tab-text h3 { font-size: 22px; }
+      .tab-text h3 { font-size: 22px; text-wrap: balance; }
       .tab-text .btn-primary { width: 100%; justify-content: center; }
+      .tab-text p { text-wrap: balance; }
 
       /* CTA Contacts */
       .cta-contacts { flex-direction: column; align-items: stretch; gap: 10px; }
 
       /* CTA Final */
       .cta-card { padding: 44px 24px; border-radius: 24px; }
-      .cta-card h2 { font-size: 26px; }
-      .cta-card p { font-size: 15px; margin-bottom: 28px; }
+      .cta-card h2 { font-size: 26px; text-wrap: balance; }
+      .cta-card p { font-size: 15px; margin-bottom: 28px; text-wrap: balance; }
       .cta-card .btn-white { width: 100%; justify-content: center; }
       .cta-contacts { flex-direction: column; align-items: stretch; gap: 10px; }
       /* Footer */
@@ -842,7 +844,7 @@
         <div class="hero-btns">
           <a href="#cta-final" class="btn-primary">Quero calcular meu risco agora →</a>
         </div>
-        <div>
+        <div class="countdown-wrapper">
           <p style="font-size:12px; color:#94a3b8; margin-bottom:12px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;">Prazo final para adequação a NR-01</p>
           <div class="countdown">
             <div class="countdown-item">
