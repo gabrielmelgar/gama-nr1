@@ -49,6 +49,17 @@
       }
     }
   </script>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+    // TODO: Substituir G-XXXXXXXXXX pelo seu ID do Google Analytics 4
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -172,6 +183,7 @@
       font-size: 20px; font-weight: 700;
       color: #0a1628;
       display: flex; align-items: center;
+      transform: translateY(5px);
     }
     .logo-text span { color: #0891b2; }
     nav a {
@@ -237,7 +249,7 @@
       background: linear-gradient(135deg, #f0f9ff 0%, #e8f4fd 30%, #f0f9ff 60%, #ffffff 100%);
       min-height: 100vh;
       display: flex; align-items: center;
-      position: relative; overflow: hidden;
+      position: relative; overflow-x: hidden;
     }
     .hero::before {
       content: '';
@@ -630,11 +642,9 @@
     .cta-contact-box {
       background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
       border-radius: 14px; padding: 16px 24px;
-      display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none;
+      display: flex; align-items: center; gap: 10px; color: #fff;
       font-size: 14px; font-weight: 600;
-      transition: background 0.2s;
     }
-    .cta-contact-box:hover { background: rgba(255,255,255,0.2); }
 
     /* ---- FOOTER ---- */
     footer {
@@ -690,6 +700,110 @@
       .faq-grid { grid-template-columns: 1fr; }
       .tab-content.active { grid-template-columns: 1fr; }
       .impact-card { flex: 0 0 100%; }
+      .especialista-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .hero { min-height: auto; align-items: flex-start; }
+    }
+
+    /* ---- HAMBURGER ---- */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #0a1628; border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ---- MOBILE ---- */
+    @media (max-width: 768px) {
+      /* Header */
+      .header-inner { padding: 0 20px; height: 62px; }
+      nav {
+        display: none !important; position: fixed; top: 62px; left: 0; right: 0;
+        background: rgba(255,255,255,0.98); backdrop-filter: blur(12px);
+        padding: 8px 0 20px; flex-direction: column; gap: 0;
+        border-bottom: 1px solid rgba(8,145,178,0.12);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08); z-index: 99;
+      }
+      nav.open { display: flex !important; }
+      nav a { padding: 14px 24px; margin: 0; font-size: 15px; border-bottom: 1px solid #f1f5f9; }
+      nav a:last-child { border-bottom: none; }
+      .btn-outline-header { display: none; }
+      .hamburger { display: flex; }
+
+      /* General */
+      section { padding: 52px 0; }
+      .container { padding: 0 18px; }
+      .section-title { font-size: 26px; }
+      .section-subtitle { font-size: 15px; }
+
+      /* Hero */
+      .hero { min-height: auto; align-items: flex-start; }
+      .hero-inner { padding: 40px 18px 52px; gap: 36px; }
+      .hero h1 { font-size: 28px; margin: 16px 0 14px; }
+      .hero p { font-size: 15px; margin-bottom: 24px; }
+      .hero-btns { gap: 10px; }
+      .hero-btns .btn-primary { width: 100%; justify-content: center; }
+      .hero-image-wrap { height: 280px; border-radius: 18px; }
+      .countdown { gap: 8px; }
+      .countdown-item { min-width: 58px; padding: 10px 10px; }
+      .countdown-item .num { font-size: 22px; }
+      .countdown-sep { font-size: 20px; }
+
+      /* Problema */
+      .problema-image { height: 240px; }
+      .problema-quote { padding: 16px 18px; }
+
+      /* Especialista (inline style override) */
+      .especialista-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+      .especialista-photo { width: 100% !important; max-width: 300px !important; height: 360px !important; }
+      .especialista-stats { grid-template-columns: 1fr 1fr !important; }
+      .especialista-badge {
+        position: static !important; margin-top: 12px;
+        background: #f0f9ff !important; backdrop-filter: none !important;
+        border-radius: 12px !important; padding: 14px 18px !important;
+      }
+
+      /* Resultados */
+      .resultados-left h2 { font-size: 30px; }
+      .metrics-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .metric-card { padding: 20px 16px; }
+      .metric-card .metric-num { font-size: 34px; }
+      .metric-extra { padding: 20px; }
+      .metric-extra .btn-primary { width: 100%; justify-content: center; }
+
+      /* Metodologia tabs */
+      .tabs { gap: 6px; margin: 32px 0 28px; }
+      .tab-btn { padding: 10px 14px; font-size: 13px; }
+      .tab-image { height: 200px; }
+      .tab-image img { height: 200px; }
+      .tab-text h3 { font-size: 22px; }
+      .tab-text .btn-primary { width: 100%; justify-content: center; }
+
+      /* CTA Contacts */
+      .cta-contacts { flex-direction: column; align-items: stretch; gap: 10px; }
+
+      /* CTA Final */
+      .cta-card { padding: 44px 24px; border-radius: 24px; }
+      .cta-card h2 { font-size: 26px; }
+      .cta-card p { font-size: 15px; margin-bottom: 28px; }
+      .cta-card .btn-white { width: 100%; justify-content: center; }
+      .cta-contacts { flex-direction: column; align-items: stretch; gap: 10px; }
+      /* Footer */
+      .footer-inner { padding: 0 18px; }
+      .footer-top { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .footer-nav { gap: 14px; flex-wrap: wrap; }
+      .footer-bottom { flex-direction: column; gap: 12px; }
+      .footer-links { gap: 16px; flex-wrap: wrap; }
+      footer { padding: 40px 0 28px; }
+
+      /* Buttons general */
+      .btn-primary, .btn-outline { padding: 13px 24px; font-size: 14px; }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 { font-size: 24px; }
+      .section-title { font-size: 23px; }
+      .metrics-grid { grid-template-columns: 1fr; }
+      .especialista-stats { grid-template-columns: 1fr !important; }
+      .tab-btn { padding: 9px 11px; font-size: 12px; }
     }
   </style>
 </head>
@@ -698,10 +812,10 @@
   <!-- ===== HEADER ===== -->
   <header class="header">
     <div class="header-inner">
-      <div class="logo-text">
+      <a href="#hero" class="logo-text" style="text-decoration:none; cursor:pointer;">
         <img src="/brand_assets/logo.png" alt="Gama Consultoria SST" style="height:40px; width:auto; margin-right:12px; margin-top:-4px;" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='inline';">
         <span id="logo-fallback" style="display:none; font-family:'Lora',serif; font-size:20px; font-weight:700; color:#0a1628;">Gama <span style="color:#0891b2;">SST</span></span>
-      </div>
+      </a>
       <nav>
         <a href="#metodologia">Metodologia</a>
         <a href="#resultados">Resultados</a>
@@ -709,19 +823,22 @@
         <a href="#faq">FAQ</a>
       </nav>
       <a href="#cta-final" class="btn-outline-header">Solicitar Proposta</a>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
     <div class="hero-inner">
-      <div class="hero-left fade-in-left">
+      <div class="hero-left">
         <div class="badge-green">
           <span class="badge-dot"></span>
           FISCALIZAÇÃO COM MULTA A PARTIR DE MAIO/2026
         </div>
         <h1>Cada afastamento por saúde mental custa até <span>R$ 50 mil</span> à sua empresa. Já calculou o risco?</h1>
-        <p>Consultoria especializada em NR-1: diagnóstico COPSOQ II, laudo técnico e plano de ação integrado ao PGR — por equipe multidisciplinar com 30 anos de experiência.</p>
+        <p>Consultoria especializada em NR-1: diagnóstico COPSOQ II, laudo técnico e plano de ação integrado ao PGR — conduzido pessoalmente por Fabiana Gama com mais de 30 anos de experiência.</p>
         <div class="hero-btns">
           <a href="#cta-final" class="btn-primary">Quero calcular meu risco agora →</a>
         </div>
@@ -745,7 +862,7 @@
           </div>
         </div>
       </div>
-      <div class="hero-right fade-in-right">
+      <div class="hero-right">
         <div class="hero-image-wrap">
           <img src="/brand_assets/logo-fachada-2.png" alt="Gama Consultoria SST — Fachada" onerror="this.style.display='none'">
           <div class="hero-image-overlay"></div>
@@ -938,12 +1055,12 @@
   <!-- ===== ESPECIALISTA ===== -->
   <section style="background:#fff; padding:96px 0;" id="especialista">
     <div class="container">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;">
+      <div class="especialista-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;">
         <div class="fade-in-left" style="position:relative;">
-          <div style="border-radius:20px; overflow:hidden; width:360px; height:480px; margin:0 auto; background:linear-gradient(135deg,#ecfeff,#bae6fd);">
+          <div class="especialista-photo" style="border-radius:20px; overflow:hidden; width:360px; height:480px; margin:0 auto; background:linear-gradient(135deg,#ecfeff,#bae6fd);">
             <img src="/brand_assets/fabiana-gama.jpg" alt="Fabiana Gama — Psicóloga e Consultora NR-1" style="width:100%; height:100%; object-fit:cover; object-position:center top;" onerror="this.style.display='none'">
           </div>
-          <div style="position:absolute; bottom:24px; left:24px; right:24px; background:rgba(255,255,255,0.95); backdrop-filter:blur(8px); border-radius:16px; padding:20px 24px; border:1px solid rgba(8,145,178,0.2);">
+          <div class="especialista-badge" style="position:absolute; bottom:24px; left:24px; right:24px; background:rgba(255,255,255,0.95); backdrop-filter:blur(8px); border-radius:16px; padding:20px 24px; border:1px solid rgba(8,145,178,0.2);">
             <div style="font-family:'Lora',serif; font-size:18px; font-weight:700; color:#0a1628;">Fabiana Gama</div>
             <div style="font-size:13px; color:#64748b; margin-top:4px;">CRP 05/23716 · Mestre ENSP/FIOCRUZ</div>
           </div>
@@ -960,7 +1077,7 @@
           <p style="color:#475569; font-size:16px; line-height:1.7; margin-bottom:32px;">
             Enquanto plataformas de software geram relatórios automáticos, a Gama entrega laudo técnico assinado por profissional habilitado — com validade jurídica e integração direta ao PGR. Cada processo é conduzido pessoalmente por Fabiana, garantindo o rigor técnico e o cuidado humano que nenhum algoritmo substitui.
           </p>
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:32px;">
+          <div class="especialista-stats" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:32px;">
             <div style="background:#f0f9ff; border:1px solid rgba(8,145,178,0.15); border-radius:12px; padding:16px;">
               <div style="font-size:24px; font-weight:800; color:#0891b2; font-family:'Lora',serif;">+30</div>
               <div style="font-size:12px; color:#64748b;">Anos de experiência em saúde mental</div>
@@ -1077,12 +1194,12 @@
         <p>A fiscalização com caráter punitivo começa em maio de 2026. Fale com nossa equipe hoje e receba uma proposta personalizada em até 24 horas — sem compromisso.</p>
         <a href="https://wa.me/5521983835447?text=Olá!%20Gostaria%20de%20conhecer%20a%20consultoria%20de%20adequação%20à%20NR-1%20da%20Gama.%20Qual%20é%20o%20próximo%20passo%20para%20minha%20empresa?" class="btn-white" target="_blank">Solicitar proposta gratuita →</a>
         <div class="cta-contacts">
-          <a href="mailto:contato@gamaterapias.com.br" class="cta-contact-box">
+          <div class="cta-contact-box">
             contato@gamaterapias.com.br
-          </a>
-          <a href="https://wa.me/5521983835447" class="cta-contact-box" target="_blank">
+          </div>
+          <div class="cta-contact-box">
             WhatsApp: (21) 98383-5447
-          </a>
+          </div>
         </div>
       </div>
     </div>
@@ -1196,6 +1313,20 @@
     window.addEventListener('scroll', () => {
       document.querySelector('.header').style.boxShadow =
         window.scrollY > 20 ? '0 2px 20px rgba(0,0,0,0.08)' : 'none';
+    });
+
+    // ===== HAMBURGER MENU =====
+    function toggleMenu() {
+      const nav = document.querySelector('nav');
+      const ham = document.getElementById('hamburger');
+      nav.classList.toggle('open');
+      ham.classList.toggle('open');
+    }
+    document.querySelectorAll('nav a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.querySelector('nav').classList.remove('open');
+        document.getElementById('hamburger').classList.remove('open');
+      });
     });
   </script>
 </body>
